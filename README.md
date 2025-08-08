@@ -4,7 +4,7 @@ Track gym sessions (exercises, sets, reps, RPE) and get tailored feedback and we
 
 ## Stack
 - Next.js 14 (App Router) + TypeScript
-- Prisma ORM + SQLite (switchable to Postgres)
+- Prisma ORM + PostgreSQL (Neon)
 - Minimal CSS (you can add Tailwind/shadcn/ui)
 - REST route handlers for sessions, profile, and AI coach
 - OpenAI Chat Completions for coaching
@@ -24,7 +24,7 @@ Open http://localhost:3000
 Set `OPENAI_API_KEY` in `.env.local`. The AI route uses `gpt-4.1-mini` by default—swap models as desired.
 
 ## DB
-Default is SQLite (local). To use Postgres (Supabase/Azure Flexible Server), set `DATABASE_URL` accordingly and update `datasource` in `prisma/schema.prisma`.
+This project uses PostgreSQL by default. Provide your Neon connection string in `DATABASE_URL` and Prisma will connect using the PostgreSQL provider defined in `prisma/schema.prisma`.
 
 ## Auth
 This starter uses a single default user row. Swap in NextAuth/Azure AD when ready and link `UserProfile` by auth user id/email.
