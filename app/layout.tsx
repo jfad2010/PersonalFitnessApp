@@ -1,8 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {title: 'GymTrack AI',
-  description: 'Track sessions and get AI coaching',,
+export const metadata: Metadata = {
+  title: 'GymTrack AI',
+  description: 'Track sessions and get AI coaching',
   themeColor: '#000000',
   manifest: '/manifest.json'
 };
