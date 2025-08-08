@@ -24,7 +24,8 @@ Open http://localhost:3000
 Set `OPENAI_API_KEY` in `.env.local`. The AI route uses `gpt-4.1-mini` by default—swap models as desired.
 
 ## DB
-Default is SQLite (local). To use Postgres (Supabase/Azure Flexible Server), set `DATABASE_URL` accordingly and update `datasource` in `prisma/schema.prisma`.
+Default is SQLite (local). To use Postgres (Supabase/Azure Flexible Server/Neon), set `DATABASE_URL` accordingly and update `datasource` in `prisma/schema.prisma`.
+If using Neon with connection pooling, also set `DIRECT_URL` for migrations.
 
 ## Auth
 This starter uses a single default user row. Swap in NextAuth/Azure AD when ready and link `UserProfile` by auth user id/email.
