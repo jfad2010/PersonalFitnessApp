@@ -1,0 +1,34 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+out/
+dist/
+*.tsbuildinfo
+
+# Env files (keep secrets local)
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# Logs
+logs
+*.log
+*.log.*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# Local cache
+.cache
