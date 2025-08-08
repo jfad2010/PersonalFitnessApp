@@ -1,18 +1,16 @@
 import './globals.css';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'GymTrack AI',
-  description: 'Track sessions and get AI coaching',
+export const metadata: Metadata = {title: 'GymTrack AI',
+  description: 'Track sessions and get AI coaching',,
+  themeColor: '#000000',
+  manifest: '/manifest.json'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
-      </head>
+      
       <body>
         <div className="max-w-5xl mx-auto p-6">
           <header className="mb-6 flex items-center justify-between">
