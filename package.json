@@ -1,0 +1,29 @@
+{
+  "name": "gymtrack-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prisma:studio": "prisma studio",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "zod": "3.23.8",
+    "@prisma/client": "5.17.0",
+    "localforage": "1.10.0"
+  },
+  "devDependencies": {
+    "typescript": "5.5.3",
+    "@types/node": "20.12.8",
+    "@types/react": "18.2.66",
+    "prisma": "5.17.0",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.5"
+  }
+}

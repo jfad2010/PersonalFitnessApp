@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model UserProfile {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  name         String?
+  age          Int?
+  sex          String?  // 'male' | 'female' | 'other'
+  heightCm     Int?
+  weightKg     Float?
+  goals        String?  // JSON string of goals summary
+  activityLevel String? // e.g., 'sedentary','light','moderate','high'
+  metrics      Metric[]
+  sessions     Session[]
+}
+
+model Metric {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  userId       String
+  weightKg     Float?
+  bodyFatPct   Float?
+  notes        String?
+  UserProfile  UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  createdAt    DateTime @default(now())
+  userId       String
+  performedAt  DateTime @default(now())
+  name         String
+  notes        String?
+  exercises    Exercise[]
+  UserProfile  UserProfile @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Exercise {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  sessionId   String
+  name        String
+  muscleGroup String?
+  tempo       String? // e.g., "3-1-2"
+  restSec     Int?
+  sets        Set[]
+  Session     Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+}
+
+model Set {
+  id          String   @id @default(cuid())
+  exerciseId  String
+  setNumber   Int
+  weight      Float?
+  reps        Int?
+  rpe         Float?
+  isWarmup    Boolean  @default(false)
+  Exercise    Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+}
