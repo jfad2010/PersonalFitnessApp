@@ -1,6 +1,8 @@
 import { prisma } from '@/lib/prisma';
 import SessionForm from '@/components/SessionForm';
 
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   const sessions = await prisma.session.findMany({
     orderBy: { performedAt: 'desc' },
